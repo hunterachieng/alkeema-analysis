@@ -48,22 +48,21 @@ const HeroSection = () => {
 
   return (
     <section
-      className={`relative w-full h-screen bg-cover bg-center ${josefinSans.className}`}
+      className={`w-full h-screen ${josefinSans.className}`}
       style={{
         backgroundImage: "url('/images/movies.png')",
         backgroundSize: "cover",   
         backgroundPosition: "center",  
         backgroundRepeat: "no-repeat", 
-        height: "100vh",  
       }}
     >
       <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center text-white ">
         <div className="mt-20">
-          <h4 className="text-5xl md:text-5xl font-bold mb-4 leading-tight">
+          <h4 className={`text-5xl md:text-5xl font-bold mb-4 leading-tight ${josefinSans.className}`}>
             Curious what your review is really <br /> saying? Drop it and Let’s unveil <br /> the sentiment magic!
           </h4>
           <button
-            className="bg-blue-500 hover:bg-orange-600 transition-colors duration-300 px-6 py-1 text-lg font-semibold rounded-md"
+            className="bg-[#08D4F8] hover:bg-[#07B0D4] transition-colors duration-300 px-6 py-2 text-lg font-semibold rounded-md"
             onClick={handleGetStarted} 
           >
             Get Started
@@ -72,37 +71,43 @@ const HeroSection = () => {
 
         <div className="flex justify-center items-center space-x-4 mt-8">
           <button
-            className="text-blue-500 rounded-full p-4 hover:bg-gray-200"
+            className="flex justify-center items-center rounded-full border-2 border-[#08D4F8] p-2 transition-all duration-300 active:scale-110"
             onClick={prevReview}
           >
-            &#9664;
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#08D4F8]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
           </button>
 
           <div className="flex space-x-6 p-4 ">
             <div
-              className="backdrop-blur-lg p-4 rounded-lg shadow-lg text-white text-left max-w-sm max-h-60"
+              className="backdrop-blur-lg p-4 rounded-lg shadow-lg text-black text-left max-w-sm max-h-60"
               style={{ backgroundColor: "rgba(217, 217, 217, 0.5)" }}
             >              
-              <blockquote className="italic mb-4">{`"${nextReviewCard.text}"`}</blockquote>
-              <p className="font-bold">{nextReviewCard.movie}</p>
-              <p>Confidence Score: {nextReviewCard.score}</p>
-              <p>Sentiment: {nextReviewCard.sentiment}</p>
+              <blockquote className={`italic mb-4 ${josefinSans.className}`}>{`"${nextReviewCard.text}"`}</blockquote>
+              <p className={`font-bold ${josefinSans.className}`}>{nextReviewCard.movie}</p>
+              <p className={`font-bold ${josefinSans.className}`}>Confidence Score: {nextReviewCard.score}</p>
+              <p className={`font-bold ${josefinSans.className}`}>Sentiment: {nextReviewCard.sentiment}</p>
             </div>
 
             <div
-              className="backdrop-blur-lg p-4 rounded-lg shadow-lg text-white text-left max-w-sm"
+              className="backdrop-blur-lg p-4 rounded-lg shadow-lg text-black text-left max-w-sm"
               style={{ backgroundColor: "rgba(217, 217, 217, 0.5)" }}
             >              
-              <blockquote className="italic mb-4">{`"${nextReviewCard.text}"`}</blockquote>
-              <p className="font-bold">{nextReviewCard.movie}</p>
-              <p>Confidence Score: {nextReviewCard.score}</p>
-              <p>Sentiment: {nextReviewCard.sentiment}</p>
+              <blockquote className={`italic mb-4 ${josefinSans.className}`}>{`"${currentReview.text}"`}</blockquote>
+              <p className={`font-bold ${josefinSans.className}`}>{currentReview.movie}</p>
+              <p className={`font-bold ${josefinSans.className}`}>Confidence Score: {currentReview.score}</p>
+              <p className={`font-bold ${josefinSans.className}`}>Sentiment: {currentReview.sentiment}</p>
             </div>
-          </div>          <button
-            className="text-blue-500 rounded-full p-4 hover:bg-gray-200"
+          </div>
+          
+          <button
+            className="flex justify-center items-center rounded-full border-2 border-[#08D4F8] p-2 transition-all duration-300  active:scale-110"
             onClick={nextReview}
           >
-            &#9654;
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#08D4F8]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
           </button>
         </div>
       </div>

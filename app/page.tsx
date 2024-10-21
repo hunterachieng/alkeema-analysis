@@ -5,7 +5,7 @@ const ReviewFormPage = () => {
   return (
     <div>
       <HeroSection />
-      <ThankYouNegative />
+      {/* <ThankYouNegative /> */}
     </div>
   );
 };
