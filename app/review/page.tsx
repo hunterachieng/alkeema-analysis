@@ -1,12 +1,11 @@
 'use client';
 import { useState } from 'react';
-import { useRouter } from 'next/navigation'; // Ensure the import is from next/router
-import { Josefin_Sans } from 'next/font/google'; // Import the font
+import { useRouter } from 'next/navigation'; 
+import { Josefin_Sans } from 'next/font/google'; 
 
-// Configure the font
 const josefinSans = Josefin_Sans({
-  weight: ['400', '700'],  // Specify font weights
-  subsets: ['latin'],      // Specify the subset
+  weight: ['400', '700'],  
+  subsets: ['latin'],     
 });
 
 const ReviewForm = () => {
@@ -16,16 +15,16 @@ const ReviewForm = () => {
 
   const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
-    router.push('/thank-you-positive');  // Directly navigate to the thank you page
+    router.push('/thank-you-positive');  
   };
 
   return (
     <div 
       className="bg-black bg-opacity-60 h-screen flex items-center justify-center" 
-      style={{ backgroundImage: "url('/images/background.png')", backgroundSize: 'cover' }} // Added background image
+      style={{ backgroundImage: "url('/images/background.png')", backgroundSize: 'cover' }} 
     >
       <div className={`backdrop-blur-lg p-8 rounded-lg shadow-lg text-white max-w-sm w-full ${josefinSans.className}`} 
-        style={{ backgroundColor: "rgba(217, 217, 217, 0.5)" }} // Added the same background color and opacity as the review card
+        style={{ backgroundColor: "rgba(217, 217, 217, 0.5)" }} 
       >
         <h2 className="text-xl font-bold mb-4 text-center">
           Join the conversation! Share your review and let's explore it together.
@@ -36,14 +35,14 @@ const ReviewForm = () => {
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="text"
-            className="w-full p-2 border border-gray-300 rounded text-black" // Set text color to black for visibility
+            className="w-full p-2 border border-gray-300 rounded text-black" 
             placeholder="Type movie title..."
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             required
           />
           <textarea
-            className="w-full p-2 border border-gray-300 rounded text-black" // Set text color to black for visibility
+            className="w-full p-2 border border-gray-300 rounded text-black" 
             placeholder="Type your movie review..."
             value={review}
             onChange={(e) => setReview(e.target.value)}

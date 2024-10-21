@@ -1,15 +1,15 @@
 import Image from 'next/image';
-import { Josefin_Sans } from 'next/font/google'; // Import the font
+import { Josefin_Sans } from 'next/font/google'; 
 
-// Configure the font
+
 const josefinSans = Josefin_Sans({
-  weight: ['400', '700'],  // Specify font weights
-  subsets: ['latin'],      // Specify the subset
+  weight: ['400', '700'],  
+  subsets: ['latin'],      
 });
 
 const ThankYouPositive = () => {
   return (
-    <div className={`h-screen flex flex-col justify-center items-center bg-white ${josefinSans.className}`}> {/* Apply the font class here */}
+    <div className={`h-screen flex flex-col justify-center items-center bg-white ${josefinSans.className}`}> 
       <h1 className="text-2xl font-bold mb-4">Thank you for your feedback!</h1>
       <Image
         src="/images/thankyou.png"
