@@ -1,12 +1,11 @@
 'use client';
 import { useState } from "react";
-import { useRouter } from "next/navigation"; // Import the useRouter hook
-import { Josefin_Sans } from 'next/font/google'; // Import the font
+import { useRouter } from "next/navigation"; 
+import { Josefin_Sans } from 'next/font/google'; 
 
-// Configure the font
 const josefinSans = Josefin_Sans({
-  weight: ['400', '700'],  // Specify font weights
-  subsets: ['latin'],      // Specify the subset
+  weight: ['400', '700'],  
+  subsets: ['latin'],     
 });
 
 const reviews = [
@@ -58,13 +57,11 @@ const HeroSection = () => {
         height: "100vh",  
       }}
     >
-      {/* Overlay */}
       <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center text-white ">
         <div className="mt-20">
           <h4 className="text-5xl md:text-5xl font-bold mb-4 leading-tight">
             Curious what your review is really <br /> saying? Drop it and Let’s unveil <br /> the sentiment magic!
           </h4>
-          {/* "Get Started" Button */}
           <button
             className="bg-blue-500 hover:bg-orange-600 transition-colors duration-300 px-6 py-1 text-lg font-semibold rounded-md"
             onClick={handleGetStarted} 
@@ -73,9 +70,7 @@ const HeroSection = () => {
           </button>
         </div>
 
-        {/* Review Section */}
         <div className="flex justify-center items-center space-x-4 mt-8">
-          {/* Left Arrow */}
           <button
             className="text-blue-500 rounded-full p-4 hover:bg-gray-200"
             onClick={prevReview}
@@ -83,9 +78,7 @@ const HeroSection = () => {
             &#9664;
           </button>
 
-          {/* Review Cards */}
           <div className="flex space-x-6 p-4 ">
-            {/* First Review Card */}
             <div
               className="backdrop-blur-lg p-4 rounded-lg shadow-lg text-white text-left max-w-sm max-h-60"
               style={{ backgroundColor: "rgba(217, 217, 217, 0.5)" }}
@@ -96,7 +89,6 @@ const HeroSection = () => {
               <p>Sentiment: {nextReviewCard.sentiment}</p>
             </div>
 
-            {/* Second Review Card */}
             <div
               className="backdrop-blur-lg p-4 rounded-lg shadow-lg text-white text-left max-w-sm"
               style={{ backgroundColor: "rgba(217, 217, 217, 0.5)" }}
@@ -106,10 +98,7 @@ const HeroSection = () => {
               <p>Confidence Score: {nextReviewCard.score}</p>
               <p>Sentiment: {nextReviewCard.sentiment}</p>
             </div>
-          </div>
-
-          {/* Right Arrow */}
-          <button
+          </div>          <button
             className="text-blue-500 rounded-full p-4 hover:bg-gray-200"
             onClick={nextReview}
           >
