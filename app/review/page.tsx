@@ -29,18 +29,17 @@ const ReviewForm = () => {
     }
 
     try {
-      const result = await sendReview(review); // Make sure sendReview accepts an object if required
+      const result = await sendReview(review); 
 
       if (result?.sentiment) {
           const sentiment = result.sentiment.toLowerCase();
-          const confidence = (result.confidence * 100).toFixed(2); // Convert to percentage
+          const confidence = (result.confidence * 100).toFixed(2); 
 
-          // Use a template string for the URL
           const pathname = sentiment === 'positive' ? '/thank-you-positive' : '/thank-you-negative';
           const query = `?confidence=${confidence}&sentiment=${sentiment}`;
           
           setTimeout(() => {
-              router.push(pathname + query); // Concatenate the pathname and query
+              router.push(pathname + query); 
           }, 2000); 
       } else {
           setErrorMessage("Something went wrong. Please try again.");
@@ -58,20 +57,19 @@ const ReviewForm = () => {
   };
 
   return (
-    <div className={`bg-black bg-opacity-60 h-screen flex items-center justify-center ${josefinSans.className}`}
-      style={{ backgroundImage: "url('/images/background.png')", backgroundSize: 'cover' }}>
+    <div className={`bg-black bg-opacity-90 h-screen flex items-center justify-center ${josefinSans.className}`}
+      style={{ backgroundImage: "url('/images/movies.png')", backgroundSize: 'cover' }}>
       
       <div
         onClick={handleBack}
-        className="absolute top-4 left-4 w-10 h-10 bg-[#08D4F8] rounded-full flex items-center justify-center cursor-pointer"
+        className="absolute top-10 left-4 w-10 h-10 bg-[#08D4F8] rounded-full flex items-center justify-center cursor-pointer"
       >
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
           <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
         </svg>
       </div>
       
-      {/* Adjusting the form container width and border radius */}
-      <div className="backdrop-blur-lg bg-white bg-opacity-70 p-8 rounded-2xl max-w-md w-full relative"> {/* Changed to max-w-md */}
+      <div className="backdrop-blur-lg bg-white bg-opacity-40 p-8 rounded-2xl max-w-md w-full relative"> 
         <h2 className={`text-xl font-bold mb-4 text-center ${josefinSans.className}`}>
           Join the conversation! Share your review and let's explore it together.
         </h2>
@@ -82,7 +80,7 @@ const ReviewForm = () => {
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="text"
-            className={`w-full p-2 border border-gray-300 rounded-md ${josefinSans.className} placeholder-black placeholder-opacity-100`} // Changed rounded to rounded-md
+            className={`w-full p-2 border border-gray-300 rounded-md ${josefinSans.className} placeholder-black placeholder-opacity-100`} 
             placeholder="Type movie title..." 
             value={title}
             onChange={(e) => setTitle(e.target.value)}
@@ -90,7 +88,7 @@ const ReviewForm = () => {
             style={{ backgroundColor: '#D9D9D9' }}
           />
           <textarea
-            className={`w-full p-2 border border-gray-300 rounded-md ${josefinSans.className} placeholder-black placeholder-opacity-100`} // Changed rounded to rounded-md
+            className={`w-full p-2 border border-gray-300 rounded-md ${josefinSans.className} placeholder-black placeholder-opacity-100`} 
             placeholder="Type your movie review..."
             value={review}
             onChange={(e) => setReview(e.target.value)}

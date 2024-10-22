@@ -24,11 +24,9 @@ const ThankYouPositive = () => {
 
   return (
     <div className={`h-screen flex flex-col justify-center items-center bg-[#D9D9D9] ${josefinSans.className}`}>
-      {/* Vertical line, 400px tall, slightly moved to the left */}
       <div className="absolute right-[200px] top-[-4] h-[350px] w-1 bg-[#08D4F8]"></div>
 
       <div className="relative w-full flex items-center justify-center">
-        {/* Back Button */}
         <div
           onClick={handleBackClick}
           className="absolute left-8 top- w-10 h-10 bg-[#08D4F8] rounded-full flex items-center justify-center cursor-pointer"
@@ -39,10 +37,10 @@ const ThankYouPositive = () => {
         </div>
 
         <h1 className="text-4xl mb-4 font-bold text-center">Thank you for your feedback!</h1>
-      </div>
+     </div>
 
       <Image
-        src="/images/thankyou.png" // Update this to your actual image path
+        src="/images/thankyou.png" 
         alt="Thank You for Your Feedback"
         width={400}
         height={500}

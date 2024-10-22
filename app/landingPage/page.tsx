@@ -50,7 +50,7 @@ const HeroSection = () => {
     <section
       className={`w-full h-screen ${josefinSans.className}`}
       style={{
-        backgroundImage: "url('/images/movies.png')",
+        backgroundImage: "url('/images/film.png')",
         backgroundSize: "cover",   
         backgroundPosition: "center",  
         backgroundRepeat: "no-repeat", 

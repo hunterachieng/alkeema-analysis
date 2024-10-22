@@ -2,7 +2,6 @@
 import Image from 'next/image';
 import { Josefin_Sans } from 'next/font/google'; 
 import { useRouter, useSearchParams } from 'next/navigation';  
-import { FaArrowLeft } from 'react-icons/fa'; 
 
 const josefinSans = Josefin_Sans({
   weight: ['400', '700'],  
@@ -33,7 +32,7 @@ const ThankYouNegative = () => {
       <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
     </svg>
   </div>
-  <h1 className="text-4xl mb-4 font-bold">Thank you for your feedback!</h1> {/* Centered text */}
+  <h1 className="text-4xl mb-4 font-bold">Thank you for your feedback!</h1> 
 </div>
       <Image
         src="/images/sadreview.png"
