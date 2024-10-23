@@ -40,7 +40,7 @@ const HeroSection = () => {
   useEffect(() => {
     (async () => {
       const result = await getReview();
-      setReviewsList(result ?? []);
+      setReviewsList(result?.reverse().slice(0,6) ?? []);
     })();
   }, []);
 
