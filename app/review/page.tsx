@@ -29,7 +29,7 @@ const ReviewForm = () => {
     }
 
     try {
-      const result = await sendReview(review); 
+      const result = await sendReview({title, review}); 
 
       if (result?.sentiment) {
           const sentiment = result.sentiment.toLowerCase();
@@ -69,9 +69,9 @@ const ReviewForm = () => {
         </svg>
       </div>
       
-      <div className="backdrop-blur-lg bg-white bg-opacity-40 p-8 rounded-2xl max-w-md w-full relative"> 
+      <div className="backdrop-blur-lg bg-gray bg-opacity-30 p-8 rounded-2xl max-w-md w-full relative"> 
         <h2 className={`text-xl font-bold mb-4 text-center ${josefinSans.className}`}>
-          Join the conversation! Share your review and let's explore it together.
+          Join the conversation! Share your review and let&apos;s explore it together.
         </h2>
         <p className={`mb-4 text-left ${josefinSans.className}`}>
           Please take a moment to evaluate and tell us what you think about the movie you watched.
@@ -80,7 +80,7 @@ const ReviewForm = () => {
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="text"
-            className={`w-full p-2 border border-gray-300 rounded-md ${josefinSans.className} placeholder-black placeholder-opacity-100`} 
+            className={`w-full p-2 border border-gray-300 rounded-md ${josefinSans.className} placeholder-black placeholder-opacity-100 text-gray-900`} 
             placeholder="Type movie title..." 
             value={title}
             onChange={(e) => setTitle(e.target.value)}
@@ -88,7 +88,7 @@ const ReviewForm = () => {
             style={{ backgroundColor: '#D9D9D9' }}
           />
           <textarea
-            className={`w-full p-2 border border-gray-300 rounded-md ${josefinSans.className} placeholder-black placeholder-opacity-100`} 
+            className={`w-full p-2 border border-gray-300 rounded-md ${josefinSans.className} placeholder-black placeholder-opacity-100 text-gray-900`} 
             placeholder="Type your movie review..."
             value={review}
             onChange={(e) => setReview(e.target.value)}

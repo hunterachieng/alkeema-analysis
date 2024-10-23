@@ -1,7 +1,8 @@
 'use client';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation"; 
 import { Josefin_Sans } from 'next/font/google'; 
+import { getReview } from "../util/review";
 
 const josefinSans = Josefin_Sans({
   weight: ['400', '700'],  
@@ -45,6 +46,15 @@ const HeroSection = () => {
   const handleGetStarted = () => {
     router.push("/review"); 
   };
+
+  useEffect(() => {
+    (async()=>{
+      const result = await getReview();
+     console.log({result});
+     
+
+    })()
+  }, [])
 
   return (
     <section
