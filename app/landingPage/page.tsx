@@ -40,7 +40,7 @@ const HeroSection = () => {
   useEffect(() => {
     (async () => {
       const result = await getReview();
-      setReviewsList(result?.reverse().slice(0,6) ?? []);
+      setReviewsList(result?.reverse().slice(0, 6) ?? []);
     })();
   }, []);
 
@@ -76,71 +76,74 @@ const HeroSection = () => {
             Get Started
           </button>
         </div>
-
-        <div className="flex justify-center items-center space-x-4 mt-8 mx-10">
-          <button
-            className="flex justify-center items-center rounded-full border-2 border-[#08D4F8] p-2 transition-all duration-300 active:scale-110 cursor-pointer"
-            onClick={prevReview}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 text-[#08D4F8] cursor-pointer"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth="2"
+        {reviewsList.length > 0 && (
+          <div className="flex justify-center items-center space-x-4 mt-8 mx-10">
+            <button
+              className="flex justify-center items-center rounded-full border-2 border-[#08D4F8] p-2 transition-all duration-300 active:scale-110 cursor-pointer"
+              onClick={prevReview}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-          </button>
-
-          <div className="flex space-x-6 p-4 justify-center items-center">
-            { reviewsList.length > 0 && reviewsList?.slice(currentReviewIndex, currentReviewIndex + 2).map((item) => (
-              <div
-                key={item.id}
-                className="backdrop-blur-lg p-4 rounded-lg shadow-lg text-black text-left w-96 h-72"
-                style={{ backgroundColor: "rgba(217, 217, 217, 0.5)" }}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6 text-[#08D4F8] cursor-pointer"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
               >
-                <blockquote
-                  className={`italic mb-4 ${josefinSans.className}`}
-                >{`"${truncateText(item.review, 250)}"`}</blockquote>
-                <p className={`font-bold ${josefinSans.className}`}>
-                  {item.title}
-                </p>
-                <p className={`font-bold ${josefinSans.className}`}>
-                  Confidence Score: {(item.confidence * 100).toFixed(2)}
-                </p>
-                <p className={`font-bold ${josefinSans.className}`}>
-                  Sentiment: {item.sentiment}
-                </p>
-              </div>
-            ))}
-          </div>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+            </button>
 
-          <button
-            className="flex justify-center items-center rounded-full border-2 border-[#08D4F8] p-2 transition-all duration-300  active:scale-110 cursor-pointer"
-            onClick={nextReview}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 text-[#08D4F8] cursor-pointer"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth="2"
+            <div className="flex space-x-6 p-4 justify-center items-center">
+              {reviewsList
+                ?.slice(currentReviewIndex, currentReviewIndex + 2)
+                .map((item) => (
+                  <div
+                    key={item.id}
+                    className="backdrop-blur-lg p-4 rounded-lg shadow-lg text-black text-left w-96 h-72"
+                    style={{ backgroundColor: "rgba(217, 217, 217, 0.5)" }}
+                  >
+                    <blockquote
+                      className={`italic mb-4 ${josefinSans.className}`}
+                    >{`"${truncateText(item.review, 250)}"`}</blockquote>
+                    <p className={`font-bold ${josefinSans.className}`}>
+                      {item.title}
+                    </p>
+                    <p className={`font-bold ${josefinSans.className}`}>
+                      Confidence Score: {(item.confidence * 100).toFixed(2)}
+                    </p>
+                    <p className={`font-bold ${josefinSans.className}`}>
+                      Sentiment: {item.sentiment}
+                    </p>
+                  </div>
+                ))}
+            </div>
+
+            <button
+              className="flex justify-center items-center rounded-full border-2 border-[#08D4F8] p-2 transition-all duration-300  active:scale-110 cursor-pointer"
+              onClick={nextReview}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </button>
-        </div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6 text-[#08D4F8] cursor-pointer"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
