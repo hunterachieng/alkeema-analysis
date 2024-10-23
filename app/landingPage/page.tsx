@@ -40,7 +40,7 @@ const HeroSection = () => {
   useEffect(() => {
     (async () => {
       const result = await getReview();
-      setReviewsList(result);
+      setReviewsList(result ?? []);
     })();
   }, []);
 
@@ -99,29 +99,26 @@ const HeroSection = () => {
           </button>
 
           <div className="flex space-x-6 p-4 justify-center items-center">
-            {reviewsList &&
-              reviewsList
-                .slice(currentReviewIndex, currentReviewIndex + 2)
-                .map((item) => (
-                  <div
-                    key={item.id}
-                    className="backdrop-blur-lg p-4 rounded-lg shadow-lg text-black text-left w-96 h-72"
-                    style={{ backgroundColor: "rgba(217, 217, 217, 0.5)" }}
-                  >
-                    <blockquote
-                      className={`italic mb-4 ${josefinSans.className}`}
-                    >{`"${truncateText(item.review, 250)}"`}</blockquote>
-                    <p className={`font-bold ${josefinSans.className}`}>
-                      {item.title}
-                    </p>
-                    <p className={`font-bold ${josefinSans.className}`}>
-                      Confidence Score: {(item.confidence * 100).toFixed(2)}
-                    </p>
-                    <p className={`font-bold ${josefinSans.className}`}>
-                      Sentiment: {item.sentiment}
-                    </p>
-                  </div>
-                ))}
+            { reviewsList.length > 0 && reviewsList?.slice(currentReviewIndex, currentReviewIndex + 2).map((item) => (
+              <div
+                key={item.id}
+                className="backdrop-blur-lg p-4 rounded-lg shadow-lg text-black text-left w-96 h-72"
+                style={{ backgroundColor: "rgba(217, 217, 217, 0.5)" }}
+              >
+                <blockquote
+                  className={`italic mb-4 ${josefinSans.className}`}
+                >{`"${truncateText(item.review, 250)}"`}</blockquote>
+                <p className={`font-bold ${josefinSans.className}`}>
+                  {item.title}
+                </p>
+                <p className={`font-bold ${josefinSans.className}`}>
+                  Confidence Score: {(item.confidence * 100).toFixed(2)}
+                </p>
+                <p className={`font-bold ${josefinSans.className}`}>
+                  Sentiment: {item.sentiment}
+                </p>
+              </div>
+            ))}
           </div>
 
           <button

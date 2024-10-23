@@ -1,7 +1,7 @@
 export const sendReview = async ({title, review}:{title:string,review: string}) => {
   try {
     const response = await fetch(
-      "http://ec2-3-89-157-46.compute-1.amazonaws.com:7070/predict", 
+      "/api/review", 
       {
         method: "POST",
         headers: {
@@ -22,7 +22,7 @@ export const sendReview = async ({title, review}:{title:string,review: string}) 
 export const getReview = async () => {
   try {
     const response = await fetch(
-      "http://ec2-3-89-157-46.compute-1.amazonaws.com:7070/predict", 
+      "/api/review", 
       {
         method: "GET",
         headers: {
