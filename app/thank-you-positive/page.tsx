@@ -58,7 +58,7 @@ const ThankYouPositive = () => {
         </div>
       </div>
       <div className="z-10 flex-col justify-center items-center mx-auto bg-white bg-opacity-10 p-10 rounded-lg">
-        <h1 className="text-4xl mb-4 font-bold text-center">
+        <h1 className="text-4xl mb-4 font-bold text-center text-white">
           Thank you for your feedback!
         </h1>
         <Image
