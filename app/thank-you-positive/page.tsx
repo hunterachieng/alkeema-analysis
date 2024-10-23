@@ -35,9 +35,7 @@ const ThankYouPositive = () => {
       <div className="absolute inset-0 bg-black opacity-50"></div>
 
       <div className="absolute right-[200px] top-[-4] h-[350px] w-1 bg-[#08D4F8]"></div>
-<div>
-  
-</div>
+      <div></div>
       <div className="relative w-full flex items-center justify-center z-10">
         <div
           onClick={handleBackClick}
@@ -58,31 +56,30 @@ const ThankYouPositive = () => {
             />
           </svg>
         </div>
-
-      
       </div>
-   <div className="z-10 flex-col justify-center items-center mx-auto bg-white bg-opacity-10 p-10 rounded-lg">
-   <h1 className="text-4xl mb-4 font-bold text-center">
+      <div className="z-10 flex-col justify-center items-center mx-auto bg-white bg-opacity-10 p-10 rounded-lg">
+        <h1 className="text-4xl mb-4 font-bold text-center">
           Thank you for your feedback!
         </h1>
-      <Image
-        src="/images/thankyou.png"
-        alt="Thank You for Your Feedback"
-        width={400}
-        height={500}
-        className="mb-8  mx-auto"
-      />
-      {isLoaded ? (
-        <p className="text-3xl text-left px-4 text-white z-10">
-          Our analysis shows that your sentiment aligns with the <br />
-          movie&apos;s magic, with a confidence score of{" "}
-          <span className="text-[#08D4F8]">{confidence}%</span>
-          . Your <br /> feedback helps fellow film lovers discover great cinema!
-        </p>
-      ) : (
-        <p className="text-xl text-center">Loading your feedback...</p>
-      )}
-   </div>
+        <Image
+          src="/images/thankyou.png"
+          alt="Thank You for Your Feedback"
+          width={400}
+          height={500}
+          className="mb-8  mx-auto"
+        />
+        {isLoaded ? (
+          <p className="text-3xl text-left px-4 text-white z-10">
+            Our analysis shows that your sentiment aligns with the <br />
+            movie&apos;s magic, with a confidence score of{" "}
+            <span className="text-[#08D4F8]">{confidence}%</span>
+            . Your <br /> feedback helps fellow film lovers discover great
+            cinema!
+          </p>
+        ) : (
+          <p className="text-xl text-center">Loading your feedback...</p>
+        )}
+      </div>
     </div>
   );
 };
