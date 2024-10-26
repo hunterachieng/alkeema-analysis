@@ -93,12 +93,12 @@ const ReviewForm = () => {
 
       <div className="backdrop-blur-lg bg-gray bg-opacity-40 p-8 rounded-2xl max-w-md w-full relative transition-shadow duration-300 shadow-md shadow-gray">
         <h2
-          className={`text-xl font-bold mb-4 text-center ${josefinSans.className}`}
+          className={`text-xl font-bold mb-4 text-center text-white ${josefinSans.className}`}
         >
           Join the conversation! Share your review and let&apos;s explore it
           together.
         </h2>
-        <p className={`mb-4 text-left ${josefinSans.className}`}>
+        <p className={`mb-4 text-left text-white ${josefinSans.className}`}>
           Please take a moment to evaluate and tell us what you think about the
           movie you watched.
         </p>
